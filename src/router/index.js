@@ -1,5 +1,5 @@
 import App from '@/App.vue'
-import search from '@/componets/search.vue'
+import search from '@/componets/Search.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
