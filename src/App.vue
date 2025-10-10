@@ -4,7 +4,6 @@ import search from './componets/Search.vue';
 
 <template>
   <div>
-    <h1>Search for a book!</h1>
     <search />
   </div>
 
