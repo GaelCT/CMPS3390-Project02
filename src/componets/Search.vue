@@ -28,7 +28,7 @@ const getCover = (book) =>{
 
 <template>
  <div class="resultsPage">
-    <div class="searchBar">
+    <div class="searchBar" @keydown.enter="searchBook">
       <input v-model="SearchQuery" placeholder="Search for a book" />
       <button @click="searchBook">Search</button>
     </div>
