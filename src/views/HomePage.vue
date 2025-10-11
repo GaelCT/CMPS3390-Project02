@@ -1,6 +1,9 @@
 <template>
     <!----<header>Hello </header>-->
-    <div class= "bookContent">
+    <div class = "home">
+        <h1> Welcome to ____ </h1>
+    </div>
+    <div class = "bookContent">
         
 <p>Introduction to Algorithms</p>
 <p>The Art of Computer Programming</p>
@@ -28,10 +31,13 @@
 <script>
     export default {
         name : 'HomePage',
-        components: 
+        //components: 
     }
 </script>
 
 <style scoped>
-
+    .home{
+        text-align: center;
+        margin-top: 10%;
+}
 </style>
