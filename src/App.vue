@@ -1,6 +1,6 @@
 <script setup>
 import search from './componets/Search.vue';
-import Home from './Home src/Home.vue';
+//import Home from './Home src/Home.vue';
 
 </script>
 
