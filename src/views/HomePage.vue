@@ -3,8 +3,15 @@
     <div class = "home">
         <h1> Welcome to ____ </h1>
     </div>
+    
+    <CContainer md>
+        Content here    
+    </CContainer>
     <div class = "bookContent">
         
+    
+
+
 <p>Introduction to Algorithms</p>
 <p>The Art of Computer Programming</p>
 <p>Code: The Hidden Language of Computer Hardware and Software</p>
@@ -22,17 +29,22 @@
 <p>The Little Schemer</p>
 <p>Artificial Intelligence: A Modern Approach</p>
 <p>Deep Learning</p>
-<p>The Road to Conscious Machines: The Story of AI</p>
-<p>Computer Networks</p>
-<p>Fundamentals of Database Systems</p>
+
     </div>
 
 </template>
 <script>
-    export default {
-        name : 'HomePage',
-        //components: 
-    }
+//import { BContainer, BRow, BCol } from 'bootstrap-vue'; // or CoreUI components
+
+        export default {
+          name : 'HomePage',
+            components: {
+           // BContainer,
+           // BRow,
+           // BCol,
+     
+            }
+            }
 </script>
 
 <style scoped>

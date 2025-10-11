@@ -1,5 +1,6 @@
 <script setup>
 import search from './componets/Search.vue';
+//mport { CContainer } from '@coreui/vue'
 //import Home from './Home src/Home.vue';
 
 </script>
@@ -16,7 +17,7 @@ import search from './componets/Search.vue';
     <router-view /> <!-- This will display the HomePage-->
   </div>
   <main> 
-    
+
   </main>
  
 
