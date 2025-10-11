@@ -5,19 +5,32 @@ import search from './componets/Search.vue';
 </script>
 
 <template>
-  <Home>
-    <nav>
+  <div> 
+    <nav :style = "{ backgroundColor: 'black', color: 'white', padding: '10px',
+      fontFamily: 'arial', fontSize: '40'
+    }">
       <router-link to="/home">Home</router-link>
       <router-link to="/Search">Search</router-link>
+      <!-- This will be the last page, which will be the shopping cart-->
     </nav>
     <router-view /> <!-- This will display the HomePage-->
-  </Home>
-  
+  </div>
+  <main> 
+    
+  </main>
+ 
+
+  <!--
   <div>
     <h1>Search for a book!</h1>
     <search />
   </div>
-
+-->
 </template>
 
-<style scoped></style>
+<style scoped>
+
+.nav{
+  
+}
+</style>
