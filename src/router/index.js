@@ -1,19 +1,34 @@
 import App from '@/App.vue'
+import Search from '@/componets/Search.vue'
 import search from '@/componets/Search.vue'
+import HomePage from '@/views/HomePage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-    path: "/",
+    path: "/home",
     name: "home",
+    component: HomePage,
+    },
+    /*
+    {
+    path: "/search",
+    name: "home2",
     component: App,
     },
+    
+    {
+      path:
+      name: 
+      component:  
+    }
+*/
     {
     path: "/Search",
     name: "Search",
-    component: search,
+    component: () => import('@/componets/Search.vue'),
     },
   ],
 })
