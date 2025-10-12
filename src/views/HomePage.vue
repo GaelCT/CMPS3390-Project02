@@ -1,49 +1,50 @@
+
 <template>
     <!----<header>Hello </header>-->
     <div class = "home">
-        <h1> Welcome to ____ </h1>
+        <h1> Welcome to ________ </h1> <!--Enter Text Box here-->
     </div>
-    <div>
+    <br>
 
-        
+<!--Here is the search bar from the other component-->
+
+<div>
+   <search /> 
+</div>
+
+
+<!--This is the for loop to initalize each book that is in the array-->
+    <div class = "home-pageContainer">
+        <div class = "card-grid">
+        <Cardcontainer
+            v-for="card in cardData"
+            :key="card.id"
+            :title="card.title"
+        />
+        </div>
     </div>
-    <CContainer md>
-        Content here    
-    </CContainer>
-    <!--
-    <div class = "bookContent">
-        
+    </template>
     
-
-
-<p>Introduction to Algorithms</p>
-<p>The Art of Computer Programming</p>
-<p>Code: The Hidden Language of Computer Hardware and Software</p>
-<p>Structure and Interpretation of Computer Programs (SICP)</p>
-<p>Compilers: Principles, Techniques, and Tools</p>
-<p>Clean Code: A Handbook of Agile Software Craftsmanship</p>
-<p>The Pragmatic Programmer: Your Journey to Mastery</p>
-<p>Design Patterns: Elements of Reusable Object-Oriented Software</p>
-<p>The Mythical Man-Month: Essays on Software Engineering</p>
-<p>Refactoring: Improving the Design of Existing Code</p>
-<p>Code Complete: A Practical Handbook of Software Constructio</p>
-<p>The C Programming Language</p>
-<p>Effective Java</p>
-<p>Programming Pearls</p>
-<p>The Little Schemer</p>
-<p>Artificial Intelligence: A Modern Approach</p>
-<p>Deep Learning</p>
-    
-    </div>-->
-
-</template>
 <script>
+import search from '@/componets/Search.vue';
 import { ref } from 'vue';
 import Cardcontainer from '@/componets/Cardcontainer.vue'; //refrence from Cardcontainer
-//import { BContainer, BRow, BCol } from 'bootstrap-vue'; // or CoreUI components
+//import Cardcontainer from '@/componets/Cardcontainer.vue'; Accidental duplicate
+//import { BContainer, BRow, BCol } from 'bootstrap-vue'; // Cant use this
 
-const cardData = ref([
-  {
+const cardData = ref([ 
+  
+]);
+
+        export default {
+          name : 'HomePage',
+            components: {
+                Cardcontainer //pass Cardcontainer to show that it is needed here
+            },
+            data(){
+                return {
+                    cardData: [
+   {
     id: 1,
     title: 'Introduction to Algorithms',
     imageSrc: 'images/1.jpg'
@@ -127,25 +128,30 @@ const cardData = ref([
     id: 17,
     title: 'Deep Learning',
     imageSrc: 'images/17.jpg'
+  },
+  {
+    id: 18,
+    title: 'Deep Learning',
+    imageSrc: 'images/18.jpg'
   }
-]);
-
-
-
-        export default {
-          name : 'HomePage',
-            components: {
-           // BContainer,
-           // BRow,
-           // BCol,
-     
+       ]
             }
-            }
+                }
+                    }
 </script>
-
-<style scoped>
+<!-- Very nice Css, makes 3 componenets with full screen
+    Made to be compressed 
+-->
+<style scoped> 
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap:4.5%;
+        padding: 20px;
+    }
     .home{
         text-align: center;
         margin-top: 10%;
-}
+    }
+    
 </style>

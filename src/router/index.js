@@ -12,19 +12,13 @@ const router = createRouter({
     name: "home",
     component: HomePage,
     },
-    /*
+      /*
     {
-    path: "/search",
+    path: "/search", //shopping cart
     name: "home2",
     component: App,
     },
-    
-    {
-      path:
-      name: 
-      component:  
-    }
-*/
+      */
     {
     path: "/Search",
     name: "Search",
