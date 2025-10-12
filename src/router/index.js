@@ -1,5 +1,6 @@
 import App from '@/App.vue'
 import search from '@/componets/Search.vue'
+import Description from '@/componets/Description.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -14,6 +15,12 @@ const router = createRouter({
     path: "/Search",
     name: "Search",
     component: search,
+    },
+    {
+    path: "/desc/:workID",
+    name: "desc",
+    component: Description,
+    props: true,
     },
   ],
 })
