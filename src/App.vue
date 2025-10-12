@@ -14,11 +14,16 @@ import search from './componets/Search.vue';
       <router-link to="/Search">Search</router-link>
       <!-- This will be the last page, which will be the shopping cart-->
     </nav>
-    <router-view /> <!-- This will display the HomePage-->
+    <router-view /> <!-- This will display the HomePage
+    <main> </main>
+    
+    
+    -->
   </div>
-  <main> 
+  
+  
+    
 
-  </main>
  
 
   <!--
