@@ -7,11 +7,11 @@
     <br>
 
 <!--Here is the search bar from the other component-->
-
+<!--
 <div>
    <search /> 
 </div>
-
+-->
 
 <!--This is the for loop to initalize each book that is in the array-->
     <div class = "home-pageContainer">
