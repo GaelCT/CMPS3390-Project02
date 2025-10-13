@@ -140,4 +140,3 @@ const getCover = (book) =>{
 }
 
 </style>
-
