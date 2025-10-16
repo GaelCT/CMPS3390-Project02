@@ -1,5 +1,7 @@
 
 <template>
+      <NavBar />
+      
     <!----<header>Hello </header>-->
     <div class = "home">
         <h1> Welcome to ________ </h1> <!--Enter Text Box here-->
@@ -30,6 +32,7 @@
 import search from '@/componets/Search.vue';
 import { ref } from 'vue';
 import Cardcontainer from '@/componets/Cardcontainer.vue'; //refrence from Cardcontainer
+import NavBar from '@/componets/navBar.vue';
 //import Cardcontainer from '@/componets/Cardcontainer.vue'; Accidental duplicate
 //import { BContainer, BRow, BCol } from 'bootstrap-vue'; // Cant use this
 
@@ -152,6 +155,9 @@ import Cardcontainer from '@/componets/Cardcontainer.vue'; //refrence from Cardc
     .home{
         text-align: center;
         margin-top: 10%;
+    }
+    .NAVBAR{
+        
     }
     
 </style>
