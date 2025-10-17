@@ -1,6 +1,6 @@
 
 <template>
-      <NavBar />
+        <NavBar />
       
     <!----<header>Hello </header>-->
     <div class = "home">
