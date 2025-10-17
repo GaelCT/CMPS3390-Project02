@@ -156,8 +156,6 @@ import NavBar from '@/componets/navBar.vue';
         text-align: center;
         margin-top: 10%;
     }
-    .NAVBAR{
-        
-    }
+    
     
 </style>
