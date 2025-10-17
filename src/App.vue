@@ -12,6 +12,7 @@ import HomePage from './views/HomePage.vue';
     <description />
   </div>
 
+
 </template>
 
 <style scoped>
