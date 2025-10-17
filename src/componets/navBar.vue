@@ -1,47 +1,54 @@
 
 <template>
-    <div> 
+    <div class = "navvvvvv"> 
         <ul> 
             <li v-for="nav in navItems">
+               <!--<li v-if=""> </li>-->
                 {{ nav }}    
-
             </li>
         </ul>
     </div>
     
     
-    <head> 
-        <body> 
-            <ul> 
-                <li><a href ="http://localhost:5173/"> Home </a> </li>
-                <li><a href =#add the search page> Search </a> </li>
-                <li><a href =#add the shopping page> Shopping </a> </li>
-            </ul>
-        </body>
-    </head>
+   
 </template>
 
 <script> 
     export default{
         data(){
             return{
-            navItems:['Home', 'Search','Cart']
+            navItems:['Home', 'Search','🛒']
         }
     }
     }
 
 </script>
 <style scoped>
+
+.navvvvvv{
+    display: inline;
+    justify-content: center;
+}
 li{
     display: inline;
-    width: 100px;
-    background-color: black;
+    width: 10px;
+    
     color: white;
-    padding: 10px;
-    margin: 5px;
+    
+    margin: 10%;
 
 }
 
-li
+ul{
+    background-color: black;
+    padding: 10px; 
+    justify-content: center;
+
+}
+
+ul li a.active{
+    background-color: darkgrey;
+
+}
 
 </style>
