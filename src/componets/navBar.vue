@@ -1,15 +1,25 @@
 <script setup>
+import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
+const router = useRouter();
+const SearchQuery = ref("");
+
+const handleSearch = () =>{
+    const trimmed = SearchQuery.value.trim();
+    if(trimmed){
+        router.push({name: 'Search', query: {q: trimmed}});
+        SearchQuery.value = "";
+    }
+};
 </script>
 
 <template>
-<div class="searchBar" @keydown.enter="searchBook">
-    <nav>
-        <button><RouterLink to="/">HomePage</RouterLink></button>
-        <button><RouterLink to="/Search">search</RouterLink></button>
-    </nav>
-</div>
-
+  <nav class="navbar" @keydown.enter="handleSearch">
+      <button><RouterLink to="/">HomePage</RouterLink></button>
+      <input v-model="SearchQuery" type="text" placeholder="Search for a book">
+      <button @click="handleSearch">search</button>
+  </nav>
 </template>
 
 <style>
