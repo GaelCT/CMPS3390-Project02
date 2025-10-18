@@ -1,16 +1,23 @@
 <script setup>
- import { ref } from 'vue';
- import { useBookStore } from '@/stores/BooksAPI';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { useBookStore } from '@/stores/BooksAPI';
 
- const bookStore = useBookStore();
+const route = useRoute();
+const bookStore = useBookStore();
 
- const SearchQuery = ref("");
+const SearchQuery = ref("");
 
- const searchBook = () =>{
-    if (SearchQuery.value.trim()){
-        bookStore.getBooks(SearchQuery.value)
+watch(
+  () => route.query.q,      // watchees for when this value changes
+  (newQuery) => {     // This is run when the value changes
+    if (newQuery && newQuery.trim()) {      // sees if there is a new value as well if its not just spaces
+      SearchQuery.value = newQuery;     // sets the new changed value to the serch query so that it can be used later for the h1 in the results
+      bookStore.getBooks(newQuery);     // calls the getbook function to get the new books
     }
- }
+  },
+  { immediate: true } // run immediately on page load
+);
 
 const getCover = (book) =>{
   if (book.cover_i) { // Book cover URL
@@ -28,10 +35,7 @@ const getCover = (book) =>{
 
 <template>
  <div class="resultsPage">
-    <div class="searchBar" @keydown.enter="searchBook">
-      <input v-model="SearchQuery" placeholder="Search for a book" />
-      <button @click="searchBook">Search</button>
-    </div>
+    <h1 v-if="SearchQuery">Results for "{{ SearchQuery }}"</h1>
 
     <ul v-if="bookStore.books.length" class="bookResults">
       <li v-for="book in bookStore.books" :key="book.key" class="book">
@@ -45,6 +49,7 @@ const getCover = (book) =>{
 
     <p v-else class="noResults">No results found</p>
   </div>
+
 </template>
 
 
