@@ -16,51 +16,67 @@ const handleSearch = () =>{
 
 <template>
   <nav class="navbar" @keydown.enter="handleSearch">
-      <button><RouterLink to="/">HomePage</RouterLink></button>
+    <div class="pages">
+      <RouterLink to="/" class="link">HomePage</RouterLink>
+    </div>
+    <div class="searchBar">
       <input v-model="SearchQuery" type="text" placeholder="Search for a book">
-      <button @click="handleSearch">search</button>
+      <button @click="handleSearch">Search</button>
+    </div>
   </nav>
 </template>
 
-<style>
-.resultsPage {
-  padding: 30px;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: #f8f9fa;
-  min-height: 100vh;
-}
-
-.searchBar {
+<style scoped>
+.navbar{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-.searchBar input {
-  width: 50%;
-  padding: 10px 14px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-
-.searchBar input:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-.searchBar button {
-  padding: 10px 18px;
   background-color: #007bff;
   color: white;
+  padding: 10px 20px;
+}
+
+.pages {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  background: #0056b3;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+}
+
+.link:hover {
+  background: #003d80;
+}
+
+.searchBar{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.searchBar input{
+  padding: 8px 12px;
+  border-radius: 6px;
   border: none;
-  border-radius: 8px;
+  width: 250px;
+}
+
+.searchBar button{
+  background: #0056b3;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
   cursor: pointer;
 }
 
-.searchBar button:hover {
-  background-color: #0056b3;
+.searchBar button:hover{
+  background: #003d80;
 }
 </style>
