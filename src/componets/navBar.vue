@@ -18,6 +18,7 @@ const handleSearch = () =>{
   <nav class="navbar" @keydown.enter="handleSearch">
     <div class="pages">
       <RouterLink to="/" class="link">HomePage</RouterLink>
+      <RouterLink to="/CartPage" class="link">Shopping Cart</RouterLink>
     </div>
     <div class="searchBar">
       <input v-model="SearchQuery" type="text" placeholder="Search for a book">

@@ -4,6 +4,8 @@ import search from '@/componets/Search.vue'
 import Description from '@/componets/Description.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/HomePage.vue' //main page
+import CartPage from '@/views/CartPage.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -12,13 +14,13 @@ const router = createRouter({
     name: "/home",
     component: HomePage,
     },
-      /*
+      
     {
-    path: "/search", //shopping cart
-    name: "home2",
-    component: App,
+    path: "/CartPage", //shopping cart
+    name: "Cart",
+    component: CartPage,
     },
-      */
+      
     {
     path: "/Search",
     name: "Search",
