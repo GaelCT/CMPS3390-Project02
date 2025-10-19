@@ -7,14 +7,14 @@
         <br>
         <br>
 
-        <!--
+        <!-- isnt the same type as vue, :(
             <div class = "buttonName">
                <button id="addToCart"> Add to Cart </button>    
             </div>
         -->
 
   <button @click="modalOpen = true"> Description </button>
-
+  <button id="addtocart" @click="addToCart"> Add to Cart </button>
   <div class="modal" :class="{ open: modalOpen }">
     <div class="modal-inside">
         <h3> Description </h3>
@@ -78,17 +78,29 @@ h3{
    text-align: center;
    }
 
-.buttonName{
-     display: flex;
-     justify-content: center;
-     gap: 30%;
+   .addtocart{
+background-image: linear-gradient(to right,  rgb(73, 89, 159), rgb(73, 89, 159));
+    border-radius: 31.4159265359px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .141592659);
+    color: black;
+    padding: 10px 25px;
 }
 
-
+button {
+    background-image: linear-gradient(to right,  rgb(165, 192, 214), rgb(165, 192, 214));
+    border-radius: 31.4159265359px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .141592659);
+    color: black;
+    padding: 10px 25px;
+}
 
 button:active {
     opacity: 0.8;
 }
+
+
+
+
 
 .modal {
     background-color: rgba(0, 0, 0, .141592659);
@@ -102,11 +114,13 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 }
 
 .modal.open {
     opacity: 1;
     z-index: 999;
+    pointer-events: auto;
 }
 
 .modal-inside{
