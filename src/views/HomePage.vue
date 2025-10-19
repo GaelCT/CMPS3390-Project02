@@ -27,7 +27,7 @@
         </div>
     </div>
 </template>
-    
+    <!--Create another :description right under the Cardcontainer, we already have an id in there, so when button gets clicked, it extends and shows more details. -->
 <script>
 import search from '@/componets/Search.vue';
 import { ref } from 'vue';
@@ -134,7 +134,7 @@ import NavBar from '@/componets/navBar.vue';
 },
 {
   id: 18,
-  title: 'Deep Learning',
+  title: 'The Road to Conscious Machines: The Story of AI',
   imageSrc: '/images/18.jpg'
 }
        ]
