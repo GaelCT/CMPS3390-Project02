@@ -23,6 +23,7 @@
             :key="card.id"
             :title="card.title"
             :imageSrc="card.imageSrc"
+            :description="card.description"
         />
         </div>
     </div>
