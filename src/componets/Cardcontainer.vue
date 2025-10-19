@@ -6,8 +6,8 @@
         <br>
         <br>
             <div class = "buttonName">
-                <button> Add to Cart </button>
-                 <button> Learn More </button>    
+                <button id = "cart"> Add to Cart </button>
+                <button id = "info"> Learn More  </button>    
             </div>    
   </div>
 </template>
