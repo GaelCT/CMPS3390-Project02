@@ -1,9 +1,10 @@
 <script setup>
 import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { useBookStore } from '@/stores/BooksAPI';
 
 const route = useRoute();
+const router = useRouter();
 const bookStore = useBookStore();
 
 const SearchQuery = ref("");
@@ -29,6 +30,13 @@ const getCover = (book) =>{
     return placeholderURL;
   }
 }
+
+const sendtoDesc = (book) =>{
+  const id = book.key ? book.key.replace('/works/', '') : '';
+  if (id) {
+    router.push({name: 'desc', params: { workID: id }})
+  }
+}
 </script>
 
 
@@ -38,7 +46,7 @@ const getCover = (book) =>{
     <h1 v-if="SearchQuery">Results for "{{ SearchQuery }}"</h1>
 
     <ul v-if="bookStore.books.length" class="bookResults">
-      <li v-for="book in bookStore.books" :key="book.key" class="book">
+      <li v-for="book in bookStore.books" :key="book.key" class="book" @click="sendtoDesc(book)">
         <img :src="getCover(book)" alt="cover" class="cover">
         <div class="info">
           <h2>{{ book.title }}</h2>

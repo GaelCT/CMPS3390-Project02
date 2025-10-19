@@ -28,7 +28,6 @@ const router = createRouter({
     path: "/desc/:workID",
     name: "desc",
     component: Description,
-    props: true,
     },
   ],
 })
