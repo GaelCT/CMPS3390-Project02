@@ -1,13 +1,23 @@
 <template>
 <div class="container">
 <br>
-    <div class="checkOut">
-    <br>
-        <!--make the list here to be append into this class-->
-        <button @click="clear"> Checkout Button</button> 
+    <div class="checkOutContainer">  
+    <!--make the list here to be append into this class
+        
+        <p> Your total</p>
+        -->
+    <div class ="list">
+        <ul> 
+            <li v-for="item in index" in tiems :key="index"> {{ item }} </li>
+        </ul>
     
+    </div>   
+  
+         
+        
     </div>
-
+    <br>
+        <button @click="clearCart"> Checkout Button</button>
 </div>
 
 
@@ -28,8 +38,8 @@ methods: {
       },
     
     clearCart(){
-        const clearall = 'No more items ${this.cart.length * 0}'
-        this.clearCart.push(clearall);
+        const clearall = 'No more items ${this.cart.length = ""}'
+        this.clearCart.pop(clearall);
     }  
    },
 };
@@ -44,23 +54,33 @@ methods: {
     padding: 1%;
 }
 
-body{
+
+.checkOutContainer{
+    border-radius: 2.71828%;
+    display: flex;
+    justify-content: center;
+    height: 130%;
+    width: 75%;
+    position: relative;
+    margin: auto;
+    background-color: #94B0DA;
 
 }
 
-.checkOut{
-    
+.list{
     display: flex;
     justify-content: center;
-    height: 25%;
-    width: 70%;
+    height: auto;
+    width: 75%;
     position: relative;
     margin: auto;
-
+    background-color: white;
 }
 
 button{
-
+    display: flex;
+    justify-content: center;
+    margin: auto;
     background-color: rgb(100, 165, 226);
     border: 0;
     border-radius: 31.4159265359px;
