@@ -29,11 +29,20 @@
 
 
 <script setup> //YOU ABSOLUTELY NEED THIS SETUP PART TO HAVE THE BOOKS IMPORTED INTO THE CONTAINER.
-import { ref, defineProps } from 'vue';
+import { ref, defineProps } from 'vue'; 
+import { useCart } from '@/componets/useCart';
+const { addToCart } = useCart(); //gets the function 
+
+const editAddToCart = () => {
+    addToCart({
+        title: props.title,
+        price: props.price
+    })
+}
 
 const modalOpen = ref(false);
 
-defineProps({ // this is needed to pass data from a parent component to a child component. Rules for it
+const props = defineProps({ // this is needed to pass data from a parent component to a child component. Rules for it
     title: {
         type: String,
         required: true,
@@ -97,10 +106,6 @@ button {
 button:active {
     opacity: 0.8;
 }
-
-
-
-
 
 .modal {
     background-color: rgba(0, 0, 0, .141592659);

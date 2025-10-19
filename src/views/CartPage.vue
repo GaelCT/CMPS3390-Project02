@@ -7,8 +7,14 @@
         <p> Your total</p>
         -->
     <div class ="list">
-        <ul> 
-            <li v-for="(item,index)" in cart :key="index"> {{ item }} </li>
+        <div v-if="cart.length == 0 class="emptyCart"> 
+        <p>Nothing is in the cart</p>
+        </div>
+        <ul v-else> 
+            <li v-for="item in cart" :key="item.id" class="cart-item">
+                <div class="item-info">
+
+                </div>
         </ul>
     
     </div>   
@@ -25,6 +31,8 @@
 </template>
 
 <script >
+import { useCart } from '@/componets/useCart';
+const { cart, remove, total } = useCart();
 export default {
     data(){
         return{
