@@ -1,20 +1,49 @@
 <template>
   <div class="card-container">
         <h3>{{ title }}</h3>
-        <img v-if='imageSrc' :src="imageSrc" alt="Card Image" class="card-image" />
+        <img v-if='imageSrc' :src="imageSrc" alt="Card Image" class="card-image"  />
+  <!-- <button @click>-->
         
         <br>
         <br>
             <div class = "buttonName">
-                <button id = "cart"> Add to Cart </button>
-                <button id = "info"> Learn More  </button>    
-            </div>    
+               <button id="addToCart"> Add to Cart </button>    
+            </div>
+
+  <button id="description1"> Description </button>
+
+  <div class="modal">
+    <div class="modal-inside">
+        <h3 id = "Popup-Modal"> Description </h3>
+            <p> test </p>
+        <button id ="Close"> Close </button>
+        <!----data.cardData.description{i}--->
+    </div>
   </div>
+
+</div>
 </template>
 
 
 <script setup> //YOU ABSOLUTELY NEED THIS SETUP PART TO HAVE THE BOOKS IMPORTED INTO THE CONTAINER.
 import { defineProps } from 'vue';
+
+const addToCart = document.getElementById('addToCart');
+const OpenDescription = document.getElementById('description1');
+const CloseDescription = document.getElementById('Close');
+const modal = document.getElementById('modal');
+
+OpenDescription.addEventListener('click', function(){
+    modal.classList.add("open")
+});
+
+CloseDescription.addEventListener('click', function(){
+    modal.classList.remove("open")
+});
+
+addToCart.addEventListener('click', function(){
+
+});
 
 defineProps({ // this is needed to pass data from a parent component to a child component. Rules for it
     title: {
@@ -26,6 +55,10 @@ defineProps({ // this is needed to pass data from a parent component to a child 
         required: false,
         default: '',
     },
+    description: {
+        type: String,
+        required: true,
+    }
 })
 
 </script>
@@ -62,5 +95,52 @@ h3{
      justify-content: center;
      gap: 30%;
 }
+
+button {
+    background-image: linear-gradient(to right, #663399, #8853bd);
+    border-radius: 20px;
+    border: 0;
+    box-shadow: 0 1px 4 px rgba(0, 0, 0, .141592659);
+    color: white;
+    padding: 10px 25px;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, .141592659);
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: all 0.3 ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.open {
+    opacity: 1;
+    z-index: 999;
+}
+
+.modal-inside{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .141592659);
+    padding: 15px 25px;
+    text-align: center;
+    width: 300px;
+}
+
+.Popup-Modal{
+    margin: 0;
+}
+
+
 
 </style>
