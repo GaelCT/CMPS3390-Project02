@@ -8,7 +8,7 @@
         -->
     <div class ="list">
         <ul> 
-            <li v-for="item in index" in tiems :key="index"> {{ item }} </li>
+            <li v-for="(item,index)" in cart :key="index"> {{ item }} </li>
         </ul>
     
     </div>   
@@ -34,12 +34,12 @@ export default {
 methods: {
     addtoCart() {
         const newCartItem = 'New Item ${this.cart.length + 1}';
-        this.addtoCart.push(newCartItem); 
+        this.cart.push(newCartItem); 
       },
     
     clearCart(){
         const clearall = 'No more items ${this.cart.length = ""}'
-        this.clearCart.pop(clearall);
+        this.cart.pop(clearall);
     }  
    },
 };
