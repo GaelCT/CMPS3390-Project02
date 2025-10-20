@@ -173,8 +173,6 @@ export default {
   }
 }
 
-                
-                    
 </script>
 <!-- Very nice Css, makes 3 componenets with full screen
     Made to be compressed 

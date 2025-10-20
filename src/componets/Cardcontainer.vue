@@ -5,6 +5,7 @@
         
   <button @click="modalOpen = true"> Description </button>
   <button id="addtocart" @click="addToCart"> Add to Cart </button>
+
     <div class="modal" :class="{ open: modalOpen }">
     <div class="modal-inside">
         <h3> Description </h3>
@@ -49,13 +50,12 @@ const props = defineProps({ // this is needed to pass data from a parent compone
         type: String,
         required: true,
     },
-    /*
+    
     price: {
         type: Number,
         required: true,
     }
-    */
-
+    
 })
 
 </script>
@@ -64,8 +64,8 @@ const props = defineProps({ // this is needed to pass data from a parent compone
 <!--Will adjust height and width depending on the size of the screen-->
 <!---Used .1415926 for pi-->
 <style scoped>
+
 .card-container {
-  
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -80,20 +80,11 @@ img.card-image {
    border-radius: 4px;
    margin: auto;
    margin-bottom: 15px;
-
 }
 
 h3{
    text-align: center;
    }
-
-   .addtocart{
-background-image: linear-gradient(to right,  rgb(73, 89, 159), rgb(73, 89, 159));
-    border-radius: 31.4159265359px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .141592659);
-    color: black;
-    padding: 10px 25px;
-}
 
 button {
     background-image: linear-gradient(to right,  rgb(165, 192, 214), rgb(165, 192, 214));
@@ -128,7 +119,7 @@ button:active {
     pointer-events: auto;
 }
 
-.modal-inside{
+.modal-inside {
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .141592659);
@@ -137,10 +128,17 @@ button:active {
     width: 300px;
 }
 
-.Popup-Modal{
+.Popup-Modal {
     margin: 0;
 }
 
+#addtocart {
+    float: right;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .141592659);
+    color: black;
+    padding: 10px 25px;
+    background: orange; /*Doesn't work with background-color*/
+}
 
 
 </style>
