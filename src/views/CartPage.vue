@@ -5,7 +5,7 @@
 
     <div class ="list">
         <div v-if="cart.length === 0" class="empty"> 
-        <p>Nothing is in the cart</p>
+        <h2 id = "nothingInCart">NOTHING IS IN THE CART</h2>
         </div>
         <ul v-else> <!--Will need to see how to add books from 
             the API and use the gen random math to set price points -->
@@ -99,4 +99,10 @@ button:active {
   font-size: 18px;
 }
 
+#nothingInCart{
+    text-align: center;
+    font-family: Verdana;
+    font-style: bold;
+
+}
 </style>
