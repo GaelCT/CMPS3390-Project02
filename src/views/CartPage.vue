@@ -1,56 +1,49 @@
 <template>
 <div class="container">
-<br>
+
     <div class="checkOutContainer">  
     <!--make the list here to be append into this class
         
         <p> Your total</p>
         -->
     <div class ="list">
-        <div v-if="cart.length == 0 class="emptyCart"> 
+        <div v-if="cart.length === 0" class="empty"> 
         <p>Nothing is in the cart</p>
         </div>
-        <ul v-else> 
-            <li v-for="item in cart" :key="item.id" class="cart-item">
-                <div class="item-info">
-
-                </div>
-        </ul>
-    
-    </div>   
-  
-         
-        
+        <ul v-else> <!--Will need to see how to add books from 
+            the API and use the gen random math to set price points -->
+                <li v-for="item in cart" :key="item.id" class="book-in-cart">
+                    <div class="item-info">
+                        <h4> {{ item.title }} </h4>
+                        <p class="item-price">${{ item.price }}</p>        
+                    </div>
+                </li>
+            </ul>
+        </div>   
     </div>
     <br>
-        <button @click="clearCart"> Checkout Button</button>
+        <button @click="ConfigureCart"> Checkout Button</button>
 </div>
-
-
-
 </template>
 
-<script >
+<script setup>
 import { useCart } from '@/componets/useCart';
-const { cart, remove, total } = useCart();
-export default {
-    data(){
-        return{
-            cart: []
-    }
-},
-methods: {
-    addtoCart() {
-        const newCartItem = 'New Item ${this.cart.length + 1}';
-        this.cart.push(newCartItem); 
-      },
+
+const { cart, clear } = useCart();
+
+const warning = "Cant Checkout with nothing!";
+const checkoutFinal = "Thank You For Shopping with _____"
+
+const ConfigureCart = () => {
+    if(cart.value.length === 0){
+      return alert(warning);  
+    } 
     
-    clearCart(){
-        const clearall = 'No more items ${this.cart.length = ""}'
-        this.cart.pop(clearall);
-    }  
-   },
-};
+    if(cart.value.length != 0){
+        clear();
+        return alert(checkoutFinal);
+    } 
+}
 
 </script>
 
@@ -101,6 +94,13 @@ button{
 
 button:active {
     opacity: 0.8;
+}
+
+.empty{
+  text-align: center;
+  padding: 40px;
+  color: grey;
+  font-size: 18px;
 }
 
 </style>

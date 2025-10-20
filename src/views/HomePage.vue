@@ -17,6 +17,7 @@
             :title="card.title"
             :imageSrc="card.imageSrc"
             :description="card.description"
+            :price="card.price"
         />
         </div>
     </div>

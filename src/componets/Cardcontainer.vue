@@ -1,21 +1,11 @@
 <template>
   <div class="card-container">
-        <h3>{{ title }}</h3>
+        <h3>{{ title }} {{price}} </h3>
         <img v-if='imageSrc' :src="imageSrc" alt="Card Image" class="card-image"  />
-  <!-- <button @click>-->
         
-        <br>
-        <br>
-
-        <!-- isnt the same type as vue, :(
-            <div class = "buttonName">
-               <button id="addToCart"> Add to Cart </button>    
-            </div>
-        -->
-
   <button @click="modalOpen = true"> Description </button>
   <button id="addtocart" @click="addToCart"> Add to Cart </button>
-  <div class="modal" :class="{ open: modalOpen }">
+    <div class="modal" :class="{ open: modalOpen }">
     <div class="modal-inside">
         <h3> Description </h3>
             <p> {{ description }} </p>
@@ -31,11 +21,14 @@
 <script setup> //YOU ABSOLUTELY NEED THIS SETUP PART TO HAVE THE BOOKS IMPORTED INTO THE CONTAINER.
 import { ref, defineProps } from 'vue'; 
 import { useCart } from '@/componets/useCart';
+
 const { addToCart } = useCart(); //gets the function 
 
-const editAddToCart = () => {
+const ConfigureCart = () => {
     addToCart({
         title: props.title,
+        imageSrc: props.imageSrc,
+        description: props.description,
         price: props.price
     })
 }

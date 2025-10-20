@@ -7,14 +7,13 @@ export function useCart() {
   const addToCart = (item) => {
     cart.value.push(item);  
   };
-  const remove = () => {
+  const clear = () => {
   cart.value = []; 
-  };
-
+  }; //how to add the total
   return {
     cart,
     addToCart,// Shows the function
-    remove  
+    clear  
   };
 }
 
