@@ -9,10 +9,11 @@
         </div>
         <ul v-else> <!--Will need to see how to add books from 
             the API and use the gen random math to set price points -->
-                <li v-for="item in cart" :key="item.id" class="book-in-cart">
+                <li v-for="(item, index) in cart" :key="item" class="book-in-cart">
                     <div class="item-info">
-                        <h4> {{ item.title }} </h4>
-                        <p class="item-price">{{ item.price }}</p>        
+                        <h4> {{ item.title }} {{ item.price }} </h4>
+                        <!--     Figure out how to add the image here.        -->
+                       <!--     <p class="item-price">{{ item.price }}</p>      -->  
                     </div>
                 </li>
             </ul>
