@@ -2,7 +2,7 @@
   <div class="card-container">
   <!--<h2> This Is Your Cart </h2>  -->  
     <h3>{{ title }} </h3> 
-      <p>  {{price}} </p> 
+      <p id = "priceText"> ${{price}} </p> 
         <img v-if='imageSrc' :src="imageSrc" alt="Card Image" class="card-image"  />
         
   <button @click="modalOpen = true"> Description </button>
@@ -142,5 +142,10 @@ button:active {
     background: orange; /*Doesn't work with background-color*/
 }
 
+#priceText{
+text-align: center;
+font-family: Verdana;
+font-style: italic;
+}
 
 </style>

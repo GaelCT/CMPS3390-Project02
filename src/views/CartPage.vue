@@ -2,10 +2,7 @@
 <div class="container">
 
     <div class="checkOutContainer">  
-    <!--make the list here to be append into this class
-        
-        <p> Your total</p>
-        -->
+
     <div class ="list">
         <div v-if="cart.length === 0" class="empty"> 
         <p>Nothing is in the cart</p>
@@ -31,7 +28,7 @@ import { useCart } from '@/componets/useCart';
 
 const { cart, clear } = useCart();
 
-const warning = "Cant Checkout with nothing!";
+const warning = "You cannot checkout with nothing in your cart!";
 const checkoutFinal = "Thank You For Shopping with _____"
 
 const ConfigureCart = () => {
@@ -55,17 +52,16 @@ const ConfigureCart = () => {
     padding: 1%;
 }
 
-
 .checkOutContainer{
     border-radius: 2.71828%;
     display: flex;
     justify-content: center;
-    height: 130%;
-    width: 75%;
+    height: auto;
+    width: 75%; 
     position: relative;
     margin: auto;
     background-color: #94B0DA;
-
+    padding: 10%;
 }
 
 .list{
@@ -89,7 +85,7 @@ button{
     color: black;
     padding: 10px 55px;
     position: relative;
-
+    margin-bottom: 10%;
 }
 
 button:active {
