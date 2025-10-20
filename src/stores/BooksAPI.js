@@ -12,6 +12,12 @@ export const useBookStore = defineStore('bookResults', {
                 console.log(query)
                 const response = await axios.get("https://openlibrary.org/search.json?title=" + query) 
                 this.books = response.data.docs
+                //this.books.push[{
+                    //author: response.data.docs.author,
+                    //image:
+                    //desc: response.data.docs.desc || ""
+                    //quantity: 0
+                //}]
             }catch(error){
                 console.log("Failed to get books ", error)
             }
