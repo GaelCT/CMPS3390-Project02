@@ -48,7 +48,14 @@ const props = defineProps({ // this is needed to pass data from a parent compone
     description: {
         type: String,
         required: true,
+    },
+    /*
+    price: {
+        type: Number,
+        required: true,
     }
+    */
+
 })
 
 </script>

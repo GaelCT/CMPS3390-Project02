@@ -17,7 +17,7 @@
             :title="card.title"
             :imageSrc="card.imageSrc"
             :description="card.description"
-            :price="card.price"
+            :price="card.priceUpdate"
         />
         </div>
     </div>
@@ -32,6 +32,7 @@ import NavBar from '@/componets/navBar.vue';
 //import { BContainer, BRow, BCol } from 'bootstrap-vue'; // Cant use this
 
 //const cardData = ref([]);
+const priceUpdate = Math.floor(Math.random() * 25) + 10;
 
         export default {
           name : 'HomePage',
@@ -46,7 +47,9 @@ import NavBar from '@/componets/navBar.vue';
         id: 1,
         title: 'Introduction to Algorithms',
         imageSrc: '/images/1.jpg',
-        description: 'This comprehensive textbook provides a deep and rigorous introduction to the modern study of computer algorithms. It covers a broad range of algorithms in depth while keeping their design and analysis accessible to readers at all levels.'
+        description: 'This comprehensive textbook provides a deep and rigorous introduction to the modern study of computer algorithms. It covers a broad range of algorithms in depth while keeping their design and analysis accessible to readers at all levels.',
+        price: priceUpdate()
+        //Math.floor(Math.random() * 20) + 5
       },
       {
         id: 2,
