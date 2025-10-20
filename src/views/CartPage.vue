@@ -15,7 +15,7 @@
                 <li v-for="item in cart" :key="item.id" class="book-in-cart">
                     <div class="item-info">
                         <h4> {{ item.title }} </h4>
-                        <p class="item-price">${{ item.price }}</p>        
+                        <p class="item-price">{{ item.price }}</p>        
                     </div>
                 </li>
             </ul>

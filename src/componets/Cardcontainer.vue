@@ -1,6 +1,8 @@
 <template>
   <div class="card-container">
-        <h3>{{ title }} {{price}} </h3>
+  <!--<h2> This Is Your Cart </h2>  -->  
+    <h3>{{ title }} </h3> 
+      <p>  {{price}} </p> 
         <img v-if='imageSrc' :src="imageSrc" alt="Card Image" class="card-image"  />
         
   <button @click="modalOpen = true"> Description </button>
