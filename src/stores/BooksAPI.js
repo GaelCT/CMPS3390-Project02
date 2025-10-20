@@ -15,7 +15,7 @@ export const useBookStore = defineStore('bookResults', {
                 //this.books.push[{
                     //author: response.data.docs.author,
                     //image:
-                    //desc: response.data.docs.desc || ""
+                    //desc: response.data.docs.desc || "" dont forget to add the posilibity if empty
                     //quantity: 0
                 //}]
             }catch(error){
