@@ -1,33 +1,46 @@
 <template>
-<div class="container">
+    <div class="container">
 
-    <div class="checkOutContainer">  
+        <div class="checkOutContainer">  
 
-    <div class ="list">
-        <div v-if="cart.length === 0" class="empty"> 
-        <h2 id = "nothingInCart">NOTHING IS IN THE CART</h2>
+            <div class="list">
+
+                <div v-if="cart.length === 0" class="empty"> 
+                    <h2 id="nothingInCart">NOTHING IS IN THE CART</h2>
+                </div>
+
+                <ul v-else>
+                    <li v-for="(item, index) in cart" :key="index" class="book-in-cart">
+                        <div class="item-info">
+                            <h4>{{ item.title }}</h4>
+                            <p>${{ item.price }} each</p>
+                            <img :src="item.image" class="card-image" />
+
+                            <div>
+                                <button @click="updateQuantity(item.title, -1)"> - </button>
+                                <span>{{ item.quantity }}</span>
+                                <button @click="updateQuantity(item.title, 1)"> + </button>
+                            </div>
+
+                            <p>Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>
+
+                            <button @click="removeFromCart(item.title)">Remove</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>   
         </div>
-        <ul v-else> <!--Will need to see how to add books from 
-            the API and use the gen random math to set price points -->
-                <li v-for="(item, index) in cart" :key="item" class="book-in-cart">
-                    <div class="item-info">
-                        <h4> {{ item.title }} {{ item.price }}  </h4>
-                           <img :src = "item.imageSrc" class="card-image"> </img> 
-                    </div>
-                </li>
-            </ul>
-        </div>   
-    </div>
+
     <br>
-        <button @click="ConfigureCart"> Checkout Button</button>
-</div>
+    <button @click="ConfigureCart">Checkout</button>
+    </div>
 </template>
 
 <script setup>
 import { useCart } from '@/componets/useCart';
 import Search from '@/componets/Search.vue';
 //const {  } = getCover();
-const { cart, clear } = useCart();
+const { cart, clear, updateQuantity, removeFromCart} = useCart();
 
 const warning = "You cannot checkout with nothing in your cart!";
 const checkoutFinal = "Thank You For Shopping with Books"
@@ -43,19 +56,6 @@ const ConfigureCart = () => {
     } 
 }
 
-//getCover();
-/*
-const getCover = (book) =>{
-  if (book.cover_i) { // Book cover URL
-    const coverID = book.cover_i // Gets cover id
-    const coverURL = "https://covers.openlibrary.org/b/id/" + coverID + "-L.jpg" // Builds the book cover image URL
-    return coverURL
-  }else{ // no book cover urlImage
-    const placeholderURL = "https://thumbs.dreamstime.com/b/no-image-vector-symbol-missing-available-icon-gallery-moment-placeholder-277514873.jpg" // No image URL pic
-    return placeholderURL;
-  }
-}
-*/
 
 </script>
 
