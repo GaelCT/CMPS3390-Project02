@@ -33,7 +33,7 @@ import NavBar from '@/componets/navBar.vue';
 
 //const cardData = ref([]);
 const priceRandom = () => Math.floor(Math.random() * 25) + 10; //used to generate prices on books instead of hard coding it :)
-//const price = 10
+//const priceArray = [5, 8, 14, 6, 16, 2, 11, 34, 21, 9, 17, 13, 19, 7, 10, 15, 18, 13]
 export default {
   name : 'HomePage',
   components: {
