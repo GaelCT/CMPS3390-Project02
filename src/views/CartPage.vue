@@ -16,13 +16,13 @@
                             <p>${{ item.price }} each</p>
                             <img :src="item.image" class="card-image" />
 
-                            <div>
-                                <button @click="updateQuantity(item.title, -1)"> - </button>
-                                <span>{{ item.quantity }}</span>
-                                <button @click="updateQuantity(item.title, 1)"> + </button>
+                            <div class="Quantity">
+                                <button @click="updateQuantity(item.title, -1)" class="button-left"> - </button>
+                                <span class="QuantityOfBooks">{{ item.quantity }} </span>
+                                <button @click="updateQuantity(item.title, 1)" class="button-right"> + </button>
                             </div>
 
-                            <p>Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>
+                            <p class="totalPricePerbook">Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>
 
                             <button @click="removeFromCart(item.title)">Remove</button>
                         </div>
@@ -129,4 +129,29 @@ img.card-image {
    margin: auto;
    margin-bottom: 15px;
 }
+
+button.button-left{
+    float:left;
+}
+
+button.button-right{
+    float:right;
+}
+
+span.QuantityOfBooks{
+    font-family: Verdana;
+    font-size: larger;
+
+}
+
+.Quantity{
+    display: flex;     
+}
+
+.totalPricePerbook{
+    padding: 0%;
+    margin: 0%;
+}
+
+
 </style>
