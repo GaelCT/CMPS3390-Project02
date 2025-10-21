@@ -187,7 +187,7 @@ export default {
     }
     .home{
         text-align: center;
-        margin-top: 10%;
+        margin-top: 5%;
     }
     
     
