@@ -50,7 +50,7 @@ const sendtoDesc = (book) =>{
         <img :src="getCover(book)" alt="cover" class="cover">
         <div class="info">
           <h2>{{ book.title }}</h2>
-          <p>By {{ book.author_name?.[0] || "Unknown" }}</p>
+          <p>By {{ book.author }}</p>
         </div>
       </li>
     </ul>
