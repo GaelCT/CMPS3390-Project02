@@ -14,7 +14,6 @@ const error = ref('')
 const priceRandom = () => Math.floor(Math.random() * 25) + 10;
 
 const addtoCart = () => {
-//if(!title.value) return;
   addToCart({
         title: title.value,
         imageSrc: coverURL.value, 
