@@ -24,7 +24,8 @@
 <script setup> //YOU ABSOLUTELY NEED THIS SETUP PART TO HAVE THE BOOKS IMPORTED INTO THE CONTAINER.
 import { ref, defineProps } from 'vue'; 
 import { useCart } from '@/componets/useCart';
-
+import Description from './Description.vue';
+//const { useBookStore } = BooksApi();
 const { addToCart } = useCart(); //gets the function 
 
 const ConfigureCart = () => {

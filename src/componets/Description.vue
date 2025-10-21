@@ -1,8 +1,9 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-
+import { useCart } from '@/componets/useCart';
 const route = useRoute()
+const { addToCart } = useCart();
 
 const workID = ref('')
 const title = ref('')
@@ -10,6 +11,17 @@ const description = ref('')
 const coverURL = ref('')
 const loading = ref(false)
 const error = ref('')
+const priceRandom = () => Math.floor(Math.random() * 25) + 10;
+
+const addtoCart = () => {
+//if(!title.value) return;
+  addToCart({
+        title: title.value,
+        imageSrc: coverURL.value, 
+        description: description.value,
+        price: priceRandom(),
+    });
+  }
 
 // keep workID in sync with the route (prefer params, fallback to query)
 function syncWorkIDFromRoute() {
