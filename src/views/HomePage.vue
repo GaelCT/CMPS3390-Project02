@@ -58,11 +58,12 @@ export default {
         },
         {
           id: 3,
-          title: 'Code: The Hidden Language of Computer Hardware and Software',
-          imageSrc: '/images/3.jpg',
-          description: 'OL1972516W',
+          title: 'The C Programming Language',
+          imageSrc: '/images/12.jpg',
+          description: 'OL4617640W',
           price: priceRandom()
         },
+        
         {
           id: 4,
           title: 'Structure and Interpretation of Computer Programs (SICP)',
@@ -121,9 +122,9 @@ export default {
         },
         {
           id: 12,
-          title: 'The C Programming Language',
-          imageSrc: '/images/12.jpg',
-          description: 'OL4617640W',
+          title: 'Code: The Hidden Language of Computer Hardware and Software',
+          imageSrc: '/images/3.jpg',
+          description: 'OL1972516W',
           price: priceRandom()
         },
         {
