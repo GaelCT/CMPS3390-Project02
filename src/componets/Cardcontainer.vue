@@ -6,7 +6,7 @@
         <img v-if='imageSrc' :src="imageSrc" alt="Card Image" class="card-image"  />
         
   <button @click="modalOpen = true"> Description </button>
-  <button id="addtocart" @click="addToCart"> Add to Cart </button>
+  <button id="addtocart" @click="ConfigureCart"> Add to Cart </button>
 
     <div class="modal" :class="{ open: modalOpen }">
     <div class="modal-inside">
@@ -28,12 +28,12 @@ import { useCart } from '@/componets/useCart';
 const { addToCart } = useCart(); //gets the function 
 
 const ConfigureCart = () => {
-    addToCart({
+     addToCart({
         title: props.title,
         imageSrc: props.imageSrc,
         description: props.description,
         price: props.price
-    })
+    });
 }
 
 const modalOpen = ref(false);

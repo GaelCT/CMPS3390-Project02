@@ -7,9 +7,14 @@ export function useCart() {
   const addToCart = (item) => {
     cart.value.push(item);  
   };
+
+/* Develop the function to calcluate and editing porition for the cart*/
+
   const clear = () => {
   cart.value = []; 
-  }; //how to add the total
+  };//how to add the total
+  
+  
   return {
     cart,
     addToCart,// Shows the function
