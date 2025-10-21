@@ -5,7 +5,7 @@
       <p id = "priceText"> ${{price}} </p> 
         <img v-if='imageSrc' :src="imageSrc" alt="Card Image" class="card-image"  />
         
-  <button @click="modalOpen = true"> Description </button>
+  <button @click="sendtoDesc(description)"> Description </button>
   <button id="addtocart" @click="ConfigureCart"> Add to Cart </button>
 
     <div class="modal" :class="{ open: modalOpen }">
@@ -24,9 +24,11 @@
 <script setup> //YOU ABSOLUTELY NEED THIS SETUP PART TO HAVE THE BOOKS IMPORTED INTO THE CONTAINER.
 import { ref, defineProps } from 'vue'; 
 import { useCart } from '@/componets/useCart';
+import { useRouter } from 'vue-router';
 import Description from './Description.vue';
 //const { useBookStore } = BooksApi();
 const { addToCart } = useCart(); //gets the function 
+const router = useRouter();
 
 const ConfigureCart = () => {
      addToCart({
@@ -35,6 +37,10 @@ const ConfigureCart = () => {
         description: props.description,
         price: props.price
     });
+}
+
+const sendtoDesc = (description) => {
+    router.push({name: 'desc', params: { workID: description }})
 }
 
 const modalOpen = ref(false);
