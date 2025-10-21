@@ -11,9 +11,8 @@
             the API and use the gen random math to set price points -->
                 <li v-for="(item, index) in cart" :key="item" class="book-in-cart">
                     <div class="item-info">
-                        <h4> {{ item.title }} {{ item.price }} </h4>
-                        <!--     Figure out how to add the image here.        -->
-                       <!--     <p class="item-price">{{ item.price }}</p>      -->  
+                        <h4> {{ item.title }} {{ item.price }}  </h4>
+                           <img :src = "item.imageSrc" class="card-image"> </img> 
                     </div>
                 </li>
             </ul>
@@ -26,11 +25,12 @@
 
 <script setup>
 import { useCart } from '@/componets/useCart';
-
+import Search from '@/componets/Search.vue';
+//const {  } = getCover();
 const { cart, clear } = useCart();
 
 const warning = "You cannot checkout with nothing in your cart!";
-const checkoutFinal = "Thank You For Shopping with _____"
+const checkoutFinal = "Thank You For Shopping with Books"
 
 const ConfigureCart = () => {
     if(cart.value.length === 0){
@@ -42,6 +42,20 @@ const ConfigureCart = () => {
         return alert(checkoutFinal);
     } 
 }
+
+//getCover();
+/*
+const getCover = (book) =>{
+  if (book.cover_i) { // Book cover URL
+    const coverID = book.cover_i // Gets cover id
+    const coverURL = "https://covers.openlibrary.org/b/id/" + coverID + "-L.jpg" // Builds the book cover image URL
+    return coverURL
+  }else{ // no book cover urlImage
+    const placeholderURL = "https://thumbs.dreamstime.com/b/no-image-vector-symbol-missing-available-icon-gallery-moment-placeholder-277514873.jpg" // No image URL pic
+    return placeholderURL;
+  }
+}
+*/
 
 </script>
 
@@ -105,5 +119,14 @@ button:active {
     font-family: Verdana;
     font-style: bold;
 
+}
+img.card-image {
+   display: flex;
+   justify-content: center;
+   max-width: 40%;
+   height: 50%; 
+   border-radius: 4px;
+   margin: auto;
+   margin-bottom: 15px;
 }
 </style>
