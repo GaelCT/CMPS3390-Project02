@@ -1,9 +1,23 @@
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
+
+const key = 'cartStorage';
+
+function loadCart() {
+  const saved = localStorage.getItem(key);
+  return saved ? JSON.parse(saved) : [];
+}
 
 //this is needed to have one cart for the entire thing
-const cart = ref([]);
+const cart = ref(loadCart());
 
 export function useCart() {
+  watch(cart,
+    (newCart) => {
+      localStorage.setItem(key, JSON.stringify(newCart));
+    },
+    { deep: true }
+  )
+
   const addToCart = (book) => {
     const existingItem = cart.value.find((item) => item.title === book.title);
     if (existingItem) {
@@ -39,6 +53,7 @@ export function useCart() {
   // Clears cart
   const clear = () => {
     cart.value = [];
+    localStorage.removeItem(key);
   };
   
   return {
