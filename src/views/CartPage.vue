@@ -13,7 +13,7 @@
                     <li v-for="(item, index) in cart" :key="index" class="book-in-cart">
                         <div class="item-info">
                             <h4>{{ item.title }}</h4>
-                            <p class = "PriceItem">${{ item.price }} each</p>
+                            <p class = "PriceItem">${{ item.price }} USD each</p>
                             <img :src="item.image" class="card-image" />
 
                             <div class="Quantity">
@@ -26,30 +26,21 @@
 
                             <button @click="removeFromCart(item.title)">Remove</button>
                         </div>
-                        
-                        
                     </li>
-                  <!--<p> Among us</p>  <p class="totalPriceFforallbooks">Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>-->
-                    <!--<p>  ${{ total1 }}</p>
-                    <p> {{ FinalValue() }} </p>-->
-                 <!-- <p v-for="(item, index) in cart"> Total For The Entire Cart: ${{((item.price * item.quantity) * item.value).toFixed(2) }}</p>-->
-                </ul>
-            
+                    <p class = "finalValue"> Your final total is ${{ FinalValue() }} USD </p>
+                </ul>            
             </div>   
-       
         </div>
-
     <br>
-        <div class = "buttonSpace">
-            <button @click="ConfigureCart">Checkout</button>
-        </div>
+            <div class = "buttonSpace">
+                <button @click="ConfigureCart">Checkout</button>
+            </div>
     </div>
 </template>
 
 <script setup>
 import { useCart } from '@/componets/useCart';
 import Search from '@/componets/Search.vue';
-//const {  } = getCover();
 const { cart, clear, updateQuantity, removeFromCart} = useCart();
 
 const warning = "You cannot checkout with nothing in your cart!";
@@ -68,10 +59,10 @@ const ConfigureCart = () => {
 
 const FinalValue = () => {
     let total1 = 0;
-    for (let item = 0; item.cart.value.index, item++; ){
-    total1 += ((item.price * item.quantity));
+    for (let book of cart.value){
+        total1 += (book.price * book.quantity);
     }
-    return total1.toFixed(2);
+    return total1;
 }
 
 
@@ -170,6 +161,7 @@ span.QuantityOfBooks{
 .totalPricePerbook{
     padding: 0%;
     margin: 0%;
+    font-size: larger;
 }
 
 .PriceItem{
@@ -179,6 +171,12 @@ span.QuantityOfBooks{
 
 .buttonSpace{
     height: 100px;
+}
+
+.finalValue{
+    font-family: Verdana;
+    font-size: larger;
+    text-align: center;
 }
 
 </style>
