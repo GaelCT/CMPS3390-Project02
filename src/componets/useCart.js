@@ -2,6 +2,7 @@ import { ref, computed, watch } from 'vue';
 
 const key = 'cartStorage';
 
+// creates cartStorage in local storage
 function loadCart() {
   const saved = localStorage.getItem(key);
   return saved ? JSON.parse(saved) : [];
@@ -50,7 +51,7 @@ export function useCart() {
     cart.value = cart.value.filter((item) => item.title !== bookTitle);
   };
 
-  // Clears cart
+  // Clears cart and local storage
   const clear = () => {
     cart.value = [];
     localStorage.removeItem(key);

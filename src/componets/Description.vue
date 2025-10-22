@@ -23,8 +23,8 @@ const addtoCart = () => {
   }
 
 // keep workID in sync with the route (prefer params, fallback to query)
-function syncWorkIDFromRoute() {
-  workID.value = (route.params.workID ?? route.query.workID ?? '').toString()
+function collectWorkIDFromRoute() {
+  workID.value = (route.params.workID).toString()
 }
 
 // fetch the work details
@@ -37,37 +37,38 @@ async function fetchWork() {
   coverURL.value = ''
 
   try {
-    const workURL = await fetch(`https://openlibrary.org/works/${workID.value}.json`)
-    if (!workURL.ok) throw new Error(`HTTP ${workURL.status}`)
-    const work = await workURL.json()
+    const workURL = await fetch(`https://openlibrary.org/works/${workID.value}.json`) // awaits responce from openlibrary
+    if (!workURL.ok) throw new Error(`HTTP ${workURL.status}`)                        // error handling
+    const work = await workURL.json()                                                 // parses json file and turns it into and object
 
     title.value = work.title || ''
 
     description.value =
       typeof work.description === 'string'
-        ? work.description
-        : (work.description?.value ?? 'No description available.')
+        ? work.description                                         // handles descriptions that are strings
+        : (work.description?.value ?? 'No description available.') // handles descriptions that are objects and mission descriptions
 
-    const coverID = Array.isArray(work.covers) && work.covers.length ? work.covers[0] : null
+    const coverID = Array.isArray(work.covers) && work.covers.length ? work.covers[0] : null // checks if work.covers is an array and if it has at least 1 element, else returns null
     coverURL.value = coverID
-      ? `https://covers.openlibrary.org/b/id/${coverID}-L.jpg`
-      : 'https://thumbs.dreamstime.com/b/no-image-vector-symbol-missing-available-icon-gallery-moment-placeholder-277514873.jpg'
+      ? `https://covers.openlibrary.org/b/id/${coverID}-L.jpg`                                                                   // reterns the first cover if found
+      : 'https://thumbs.dreamstime.com/b/no-image-vector-symbol-missing-available-icon-gallery-moment-placeholder-277514873.jpg' // returns placeholder if null
   } catch (e) {
-    error.value = `Failed to load work (${e.message}).`
+    error.value = `Failed to load work (${e.message}).` // error handling
   } finally {
     loading.value = false
   }
 }
 
 // initialize and react to route changes
-syncWorkIDFromRoute()
+collectWorkIDFromRoute()
 watch(
-  () => [route.params.workID, route.query.workID],
+  // watches for change in route.params.workID, will call functions below if changed
+  () => [route.params.workID],
   () => {
-    syncWorkIDFromRoute()
+    collectWorkIDFromRoute()
     fetchWork()
   },
-  { immediate: true }
+  { immediate: true } // will run watcher as soon as it is created
 )
 </script>
 
