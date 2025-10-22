@@ -8,15 +8,6 @@
   <button @click="sendtoDesc(description)"> Description </button>
   <button id="addtocart" @click="ConfigureCart"> Add to Cart </button>
 
-    <div class="modal" :class="{ open: modalOpen }">
-    <div class="modal-inside">
-        <h3> Description </h3>
-            <p> {{ description }} </p>
-        <button @click="modalOpen = false"> Close </button>
-        <!----data.cardData.description{i}--->
-    </div>
-  </div>
-
 </div>
 </template>
 
@@ -105,40 +96,6 @@ button {
 
 button:active {
     opacity: 0.8;
-}
-
-.modal {
-    background-color: rgba(0, 0, 0, .141592659);
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    transition: all 0.3 ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-}
-
-.modal.open {
-    opacity: 1;
-    z-index: 999;
-    pointer-events: auto;
-}
-
-.modal-inside {
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, .141592659);
-    padding: 15px 25px;
-    text-align: center;
-    width: 300px;
-}
-
-.Popup-Modal {
-    margin: 0;
 }
 
 #addtocart {
