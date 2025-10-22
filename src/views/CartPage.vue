@@ -27,6 +27,7 @@
                             <button @click="removeFromCart(item.title)">Remove</button>
                         </div>
                     </li>
+                   <!-- <p class="totalPriceFforallbooks">Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>-->
                 </ul>
             </div>   
         </div>
@@ -83,10 +84,11 @@ const ConfigureCart = () => {
     display: flex;
     justify-content: center;
     height: auto;
-    width: 75%;
+    width: 85%;
     position: relative;
     margin: auto;
-    background-color: white;
+    background-color: beige;
+    border-radius: 3%;
 }
 
 button{
