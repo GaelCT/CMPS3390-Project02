@@ -12,7 +12,7 @@
                 <ul v-else>
                     <li v-for="(item, index) in cart" :key="index" class="book-in-cart">
                         <div class="item-info">
-                            <h4>{{ item.title }}</h4>
+                            <h2>{{ item.title }}</h2>
                             <p class = "PriceItem">${{ item.price }} USD each</p>
                             <img :src="item.image" class="card-image" />
 
