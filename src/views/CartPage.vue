@@ -13,7 +13,7 @@
                     <li v-for="(item, index) in cart" :key="index" class="book-in-cart">
                         <div class="item-info">
                             <h4>{{ item.title }}</h4>
-                            <p>${{ item.price }} each</p>
+                            <p class = "PriceItem">${{ item.price }} each</p>
                             <img :src="item.image" class="card-image" />
 
                             <div class="Quantity">
@@ -21,19 +21,28 @@
                                 <span class="QuantityOfBooks">{{ item.quantity }} </span>
                                 <button @click="updateQuantity(item.title, 1)" class="button-right"> + </button>
                             </div>
-
-                            <p class="totalPricePerbook">Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>
+                               
+                            <p class="totalPricePerbook">Total: ${{  (item.price * item.quantity).toFixed(2) }}</p>
 
                             <button @click="removeFromCart(item.title)">Remove</button>
                         </div>
+                        
+                        
                     </li>
-                   <!-- <p class="totalPriceFforallbooks">Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>-->
+                  <!--<p> Among us</p>  <p class="totalPriceFforallbooks">Total: ${{ (item.price * item.quantity).toFixed(2) }}</p>-->
+                    <!--<p>  ${{ total1 }}</p>
+                    <p> {{ FinalValue() }} </p>-->
+                 <!-- <p v-for="(item, index) in cart"> Total For The Entire Cart: ${{((item.price * item.quantity) * item.value).toFixed(2) }}</p>-->
                 </ul>
+            
             </div>   
+       
         </div>
 
     <br>
-    <button @click="ConfigureCart">Checkout</button>
+        <div class = "buttonSpace">
+            <button @click="ConfigureCart">Checkout</button>
+        </div>
     </div>
 </template>
 
@@ -57,6 +66,14 @@ const ConfigureCart = () => {
     } 
 }
 
+const FinalValue = () => {
+    let total1 = 0;
+    for (let item = 0; item.cart.value.index, item++; ){
+    total1 += ((item.price * item.quantity));
+    }
+    return total1.toFixed(2);
+}
+
 
 </script>
 
@@ -69,7 +86,7 @@ const ConfigureCart = () => {
 }
 
 .checkOutContainer{
-    border-radius: 2.71828%;
+    border-radius: 30px;
     display: flex;
     justify-content: center;
     height: auto;
@@ -88,7 +105,7 @@ const ConfigureCart = () => {
     position: relative;
     margin: auto;
     background-color: beige;
-    border-radius: 3%;
+    border-radius: 30px;
 }
 
 button{
@@ -125,8 +142,8 @@ button:active {
 img.card-image {
    display: flex;
    justify-content: center;
-   max-width: 40%;
-   height: 50%; 
+   max-width: 70%;
+   height: 10%; 
    border-radius: 4px;
    margin: auto;
    margin-bottom: 15px;
@@ -155,5 +172,13 @@ span.QuantityOfBooks{
     margin: 0%;
 }
 
+.PriceItem{
+    font-family: Verdana;
+    font-size: larger;
+}
+
+.buttonSpace{
+    height: 100px;
+}
 
 </style>
